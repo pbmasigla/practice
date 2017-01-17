@@ -1,10 +1,11 @@
+/*@flow*/
 /*
 	Arrays and strings
 */
 
 //1.1
 
-const isUnique = word => {
+const isUnique = (word: string) => {
 	let	uniqueCheck = true;
 	let usedLetters = [];
 	word.split("").forEach(letter => {
@@ -18,9 +19,10 @@ const isUnique = word => {
 	return uniqueCheck;
 };
 
+
 //1.2
 
-const isPermutation = (firstString, secondString) => {
+const isPermutation = (firstString: string, secondString: string) => {
 	if (firstString.length !== secondString.length) {
 		return false;
 	}
@@ -33,7 +35,7 @@ const isPermutation = (firstString, secondString) => {
 	);
 };
 
-const getLetterCounts = word => (
+const getLetterCounts = (word: string) => (
 	word.split("").reduce((fullCounts, letter) => {
 		const letterCount = fullCounts[letter] ? fullCounts[letter] + 1 : 1;
 		fullCounts[letter] = letterCount;
@@ -44,7 +46,7 @@ const getLetterCounts = word => (
 
 //1.3
 
-const urlifyString = (word, stringLength) => {
+const urlifyString = (word: string, stringLength: number) => {
 	let string = word.split("");
 	let spaceCount = 0;
 	for (let i = 0; i < stringLength; i++) {
@@ -71,7 +73,7 @@ const urlifyString = (word, stringLength) => {
 	return string.join("");
 };
 
-const easyUrlify = (string, stringLength) => {
+const easyUrlify = (string: string, stringLength: number) => {
 	let stringArray = string.split("");
 	for (let i = 0; i < stringLength; i++) {
 		if (stringArray[i] === " ") {
