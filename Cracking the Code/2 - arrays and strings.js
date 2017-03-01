@@ -141,3 +141,71 @@ const compressString = (string: string) => {
 	}
 	return newString;
 };
+
+
+// 1.7
+
+/*
+	Matrix
+	[
+		[A, B, C ,D],
+		[E, F, G, H],
+		[I, J, K, L]
+	]
+	=>
+	[
+		[D, H, L],
+		[C, G, K],
+		[B, F, J],
+		[A, E, I]
+	]
+
+	newRows = 4;
+	newCols = 3;
+*/
+const rotateImage = (image: Array<any>) => {
+	if (!image || image.length <= 1) {
+		return image;
+	}
+
+	const numRows = image.length;
+
+	for (let x = 0; x < numRows / 2; x++) {
+		const first = x;
+		const last = numRows - x - 1;
+
+		for (let i = first; i < last; i++) {
+			const offset = i - first;
+			const top = image[first][i];
+			image[first][i] = image[last - offset][first];
+			image[last - offset][first] = image[last][last - offset];
+			image[last][last - offset] = image[i][last];
+			image[i][last] = top;
+		}
+	}
+};
+
+
+const setToZero = (matrix: Array<any>) => {
+	let flagged = [];
+
+	return matrix.reduce((newMatrix, row) => {
+
+	}, matrix);
+};
+
+const setRowsZero = (matrix: Array<any>, row: number) => {
+	for (let y = 0; y < matrix.length; y++) {
+		matrix[y][row] = 0;
+	}
+	return matrix;
+};
+
+const setColsZero = (matrix: Array<any>, col: number) => {
+	let newCol = [];
+	for (let i = 0; i < matrix[col].length; i++) {
+		newCol.push(0);
+	}
+	matrix[col] = newCol;
+	return matrix;
+};
