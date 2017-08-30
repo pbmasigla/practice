@@ -5,7 +5,6 @@ const lengthOfLongestSubstring = s => {
   let startingIndex = 0;
   let usedChars = [];
   return splitString.reduce((longest, char, index) => {
-    console.log(usedChars, char);
     if (!usedChars.includes(char)) {
       usedChars.push(char);
     }
